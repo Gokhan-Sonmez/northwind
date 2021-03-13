@@ -2,8 +2,12 @@
   <li class="list-group-item list-group-item-primary">Kategoriler</li>
 </ul>
 <ul class="list-group">
-    <li (click)="setCurrentCategory(category)" *ngFor="let category of categories" 
-    [class]="getCategoryClass(category)">{{category.categoryName}}</li>
+  <li routerLink = "/products" [class]="getAllCategoryClass()">Tüm Ürünler</li>
+  <li (click)="setCurrentCategory(category)"
+  routerLink = "/products/category/{{category.categoryId}}"
+  *ngFor="let category of categories" 
+  [class]="getCategoryClass(category)">
+  {{category.categoryName}}</li>
 </ul>
 
-<h5 *ngIf="currentCategory">{{currentCategory.categoryName}}</h5>
+<h5 *ngIf="currentCategory">{{currentCategory.categoryName}} seçtiniz</h5>
